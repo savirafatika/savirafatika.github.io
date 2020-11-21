@@ -22,6 +22,13 @@ $urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCKPjga
 $result = get_CURL($urlLatestVideo);
 $latestVideoId = $result['items'][0]['id']['videoId'];
 
+$ig = 'https://v1.nocodeapi.com/savirafatika/instagram/TFPzLSyGNRGCMCGu?limit=6';
+$result = get_CURL($ig);
+$usernameIg = $result['data'][0]['username'];
+$photos = [];
+foreach ($result['data'] as $ph) {
+   $photos[] = $ph['media_url'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -260,7 +267,7 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
                </div>
                <div class="row">
                   <div class="col m11 s12">
-                     <iframe width="100%" height="300" src="https://www.youtube.com/embed/<?= $latestVideoId; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                     <iframe width="100%" height="300" src="https://www.youtube.com/embed/<?= $latestVideoId; ?>?rel=0" frameborder="0" allowfullscreen></iframe>
                   </div>
                   <div class="col m1"></div>
                </div>
@@ -272,17 +279,17 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
                      <img src="img/p.jpg" class="circle responsive-img">
                   </div>
                   <div class="col m8 s9">
-                     <h5>@savirafatika</h5>
+                     <h5>@<?= $usernameIg; ?></h5>
                      <p>500 Followers.</p>
                   </div>
                </div>
                <div class="row">
                   <div class="col">
-                     <div class="ig-thumbnail">
-                        <img src="img/slider/1.jpg">
-                        <img src="img/slider/2.jpg">
-                        <img src="img/slider/3.jpg">
-                     </div>
+                     <?php foreach ($photos as $ph) : ?>
+                        <div class="ig-thumbnail">
+                           <img src="<?= $ph; ?>">
+                        </div>
+                     <?php endforeach; ?>
                   </div>
                </div>
             </div>
