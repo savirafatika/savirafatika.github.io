@@ -243,6 +243,17 @@ footer {
    font-family: "Poppins", Arial, sans-serif;
 }
 
+.ig-thumbnail {
+   width: 100%;
+   height: auto;
+   float: left;
+   overflow: hidden;
+}
+
+.ig-thumbnail img {
+   width: 135px;
+}
+
 @media (max-width: 991.98px) {
    .block-2 .back {
       -webkit-transform: rotateY(0deg);
