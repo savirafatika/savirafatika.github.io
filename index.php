@@ -1,34 +1,34 @@
 <?php
 
-function get_CURL($url)
-{
-   $curl = curl_init();
-   curl_setopt($curl, CURLOPT_URL, $url);
-   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-   $result = curl_exec($curl);
-   curl_close($curl);
+// function get_CURL($url)
+// {
+//    $curl = curl_init();
+//    curl_setopt($curl, CURLOPT_URL, $url);
+//    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+//    $result = curl_exec($curl);
+//    curl_close($curl);
 
-   return json_decode($result, true);
-}
+//    return json_decode($result, true);
+// }
 
-$result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCrmaNLTz1x931Ig5Yuauf2w&key=AIzaSyCKPjga80_UnHElAiOBFAtCyjbC5uEMMkE');
+// $result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCrmaNLTz1x931Ig5Yuauf2w&key=AIzaSyCKPjga80_UnHElAiOBFAtCyjbC5uEMMkE');
 
-$ytbProfilePic = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
-$channelName = $result['items'][0]['snippet']['title'];
-$subscriber = $result['items'][0]['statistics']['subscriberCount'];
+// $ytbProfilePic = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
+// $channelName = $result['items'][0]['snippet']['title'];
+// $subscriber = $result['items'][0]['statistics']['subscriberCount'];
 
 // Latest Video
-$urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCKPjga80_UnHElAiOBFAtCyjbC5uEMMkE&channelId=UCrmaNLTz1x931Ig5Yuauf2w&maxResults=1&order=date&part=snippet';
-$result = get_CURL($urlLatestVideo);
-$latestVideoId = $result['items'][0]['id']['videoId'];
+// $urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCKPjga80_UnHElAiOBFAtCyjbC5uEMMkE&channelId=UCrmaNLTz1x931Ig5Yuauf2w&maxResults=1&order=date&part=snippet';
+// $result = get_CURL($urlLatestVideo);
+// $latestVideoId = $result['items'][0]['id']['videoId'];
 
-$ig = 'https://v1.nocodeapi.com/savirafatika/instagram/TFPzLSyGNRGCMCGu?limit=6';
-$result = get_CURL($ig);
-$usernameIg = $result['data'][0]['username'];
-$photos = [];
-foreach ($result['data'] as $ph) {
-   $photos[] = $ph['media_url'];
-}
+// $ig = 'https://v1.nocodeapi.com/savirafatika/instagram/TFPzLSyGNRGCMCGu?limit=6';
+// $result = get_CURL($ig);
+// $usernameIg = $result['data'][0]['username'];
+// $photos = [];
+// foreach ($result['data'] as $ph) {
+//    $photos[] = $ph['media_url'];
+// }
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +58,7 @@ foreach ($result['data'] as $ph) {
                <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                <ul class="right hide-on-med-and-down">
                   <li><a href="#about">About Me</a></li>
+                  <li><a href="#portfolio">Portfolio</a></li>
                   <li><a href="#expert">Expertise</a></li>
                   <li><a href="#contact">Contact Me</a></li>
                </ul>
@@ -69,7 +70,8 @@ foreach ($result['data'] as $ph) {
    <!-- sidenav -->
    <ul class="sidenav" id="mobile-nav">
       <li><a href="#about">About Me</a></li>
-      <li><a href="#expert">Portofolio</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#expert">Expertise</a></li>
       <li><a href="#contact">Contact Me</a></li>
    </ul>
 
@@ -126,7 +128,7 @@ foreach ($result['data'] as $ph) {
                         </ul>
                      </div>
                   </li>
-                  <li>
+                  <!-- <li>
                      <div class="collapsible-header">
                         <i class="material-icons">web</i>Web Project
                         <span class="badge">
@@ -143,7 +145,7 @@ foreach ($result['data'] as $ph) {
                            <li>~ Selection of Catering Menu Package (DSS)</li>
                         </ul>
                      </div>
-                  </li>
+                  </li> -->
                   <li>
                      <div class="collapsible-header">
                         <i class="material-icons">school</i>Education
@@ -172,6 +174,32 @@ foreach ($result['data'] as $ph) {
                <p style="text-align: justify; text-indent: 45px;">Minasan Konnichiwa <span>&#128075;&#127995;</span> jibun jishin o shokai suru koto ga dekimasu. Watashi wa Savira Fatika to mooshi-masu, Savira to yobu koto ga dekimasu. Watashi no shumi wa ongaku o kiku koto desu to baiku ni noru koto desu, ie de goro-goro suru no ga suki desu. Watashi wa okashi ga suki desu. Watashi no yume wa web developer ni naru koto desu. Yoroshiku Onegaishimasu.</p>
                <br>
             </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Portfolio -->
+   <section id="portfolio" class="portfolio scrollspy" style="background-color: #fffbfd;">
+      <div class="container">
+         <h3 class="light center pink-text text-darken-4">Portfolio</h3>
+         <div class="row col m4">
+            <div class="col m2 s3">
+               <img src="img/github.png" class="circle responsive-img">
+            </div>
+            <div class="col m10 s9" id="connect"></div>
+         </div>
+         <div class="row info-repo">
+            <table class="responsive-table">
+               <thead>
+                  <tr class="table-info">
+                     <th>Repositories Name</th>
+                     <th>URL</th>
+                     <th>Language</th>
+                  </tr>
+               </thead>
+               <tbody>
+               </tbody>
+            </table>
          </div>
       </div>
    </section>
@@ -249,7 +277,7 @@ foreach ($result['data'] as $ph) {
    </section>
 
    <!-- Social Media -->
-   <section id="sosmed" class="sosmed scrollspy pink darken-4 white-text" style="background-color: #fffbfd;">
+   <!-- <section id="sosmed" class="sosmed scrollspy pink darken-4 white-text" style="background-color: #fffbfd;">
       <div class="container">
          <h3 class="light center">Social Media</h3>
          <div class="row">
@@ -296,7 +324,7 @@ foreach ($result['data'] as $ph) {
 
          </div>
       </div>
-   </section>
+   </section> -->
 
    <!-- button back to top -->
    <button id="top">
@@ -314,7 +342,6 @@ foreach ($result['data'] as $ph) {
 
    <!--JavaScript at end of body for optimized loading-->
    <script type="text/javascript" src="js/materialize.min.js"></script>
-
    <script>
       const sideNav = document.querySelectorAll('.sidenav');
       M.Sidenav.init(sideNav);
@@ -341,9 +368,6 @@ foreach ($result['data'] as $ph) {
       const collapsible = document.querySelectorAll('.collapsible');
       M.Collapsible.init(collapsible);
    </script>
-
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
    <script type="text/javascript">
       $(document).ready(function() {
          var offset = 250;
@@ -364,8 +388,10 @@ foreach ($result['data'] as $ph) {
          });
       });
    </script>
-
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="https://apis.google.com/js/platform.js"></script>
+   <script src="js/getrepo.js"></script>
+   <script src="js/getuser.js"></script>
 
 </body>
 
