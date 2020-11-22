@@ -254,6 +254,7 @@ footer {
    height: 150px;
    object-fit: cover;
    object-position: center;
+   margin-right: 3px;
 }
 
 .info-repo {

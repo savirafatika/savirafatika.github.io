@@ -1,34 +1,34 @@
 <?php
 
-// function get_CURL($url)
-// {
-//    $curl = curl_init();
-//    curl_setopt($curl, CURLOPT_URL, $url);
-//    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-//    $result = curl_exec($curl);
-//    curl_close($curl);
+function get_CURL($url)
+{
+   $curl = curl_init();
+   curl_setopt($curl, CURLOPT_URL, $url);
+   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+   $result = curl_exec($curl);
+   curl_close($curl);
 
-//    return json_decode($result, true);
-// }
+   return json_decode($result, true);
+}
 
-// $result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCrmaNLTz1x931Ig5Yuauf2w&key=AIzaSyCKPjga80_UnHElAiOBFAtCyjbC5uEMMkE');
+$result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCrmaNLTz1x931Ig5Yuauf2w&key=AIzaSyCKPjga80_UnHElAiOBFAtCyjbC5uEMMkE');
 
-// $ytbProfilePic = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
-// $channelName = $result['items'][0]['snippet']['title'];
-// $subscriber = $result['items'][0]['statistics']['subscriberCount'];
+$ytbProfilePic = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
+$channelName = $result['items'][0]['snippet']['title'];
+$subscriber = $result['items'][0]['statistics']['subscriberCount'];
 
 // Latest Video
-// $urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCKPjga80_UnHElAiOBFAtCyjbC5uEMMkE&channelId=UCrmaNLTz1x931Ig5Yuauf2w&maxResults=1&order=date&part=snippet';
-// $result = get_CURL($urlLatestVideo);
-// $latestVideoId = $result['items'][0]['id']['videoId'];
+$urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCKPjga80_UnHElAiOBFAtCyjbC5uEMMkE&channelId=UCrmaNLTz1x931Ig5Yuauf2w&maxResults=1&order=date&part=snippet';
+$result = get_CURL($urlLatestVideo);
+$latestVideoId = $result['items'][0]['id']['videoId'];
 
-// $ig = 'https://v1.nocodeapi.com/savirafatika/instagram/TFPzLSyGNRGCMCGu?limit=6';
-// $result = get_CURL($ig);
-// $usernameIg = $result['data'][0]['username'];
-// $photos = [];
-// foreach ($result['data'] as $ph) {
-//    $photos[] = $ph['media_url'];
-// }
+$ig = 'https://v1.nocodeapi.com/savirafatika/instagram/TFPzLSyGNRGCMCGu?limit=6';
+$result = get_CURL($ig);
+$usernameIg = $result['data'][0]['username'];
+$photos = [];
+foreach ($result['data'] as $ph) {
+   $photos[] = $ph['media_url'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -277,7 +277,7 @@
    </section>
 
    <!-- Social Media -->
-   <!-- <section id="sosmed" class="sosmed scrollspy pink darken-4 white-text" style="background-color: #fffbfd;">
+   <section id="sosmed" class="sosmed scrollspy pink darken-4 white-text" style="background-color: #fffbfd;">
       <div class="container">
          <h3 class="light center">Social Media</h3>
          <div class="row">
@@ -324,7 +324,7 @@
 
          </div>
       </div>
-   </section> -->
+   </section>
 
    <!-- button back to top -->
    <button id="top">
