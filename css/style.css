@@ -4,6 +4,10 @@
    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+.slider .slides {
+   height: 700px;
+}
+
 .parallax-container {
    height: 20%;
 }
@@ -23,24 +27,64 @@ footer {
    padding: 20px 0;
 }
 
-#top {
+#back-to-top-btn {
+   display: none;
    position: fixed;
-   right: 30px;
    bottom: 30px;
+   right: 30px;
    width: 50px;
    height: 50px;
-   border-radius: 50%;
-   background: #880e4f;
+   background-color: #880E4F;
+   cursor: pointer;
+   outline: none;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
    color: #ffffff;
    border: none;
-   outline: none;
-   cursor: pointer;
+   border-radius: 50%;
+   transition-duration: 0.2s;
+   transition-timing-function: ease-in-out;
+   transition-property: background-color, color;
 }
 
-#top:hover {
-   background: #eceff1;
-   color: #37474f;
+#back-to-top-btn:hover,
+#back-to-top-btn:focus {
+   background-color: #ffffff;
+   color: #880E4F;
+}
+
+.btnEntrance {
+   animation-duration: 0.5s;
+   animation-fill-mode: both;
+   animation-name: btnEntrance;
+}
+
+@keyframes btnEntrance {
+   from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+   }
+
+   to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+   }
+}
+
+.btnExit {
+   animation-duration: 0.25s;
+   animation-fill-mode: both;
+   animation-name: btnExit;
+}
+
+@keyframes btnExit {
+   from {
+      opacity: 1;
+   }
+
+   to {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+   }
 }
 
 .cc {
@@ -266,7 +310,15 @@ footer {
    overflow-y: auto;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 575px) {
+   .slider .slides {
+      height: 400px !important;
+   }
+
+   .slider {
+      margin-bottom: -100px !important;
+   }
+
    .block-2 .back {
       -webkit-transform: rotateY(0deg);
       -moz-transform: rotateY(0deg);
@@ -281,7 +333,16 @@ footer {
       -o-transform: rotateY(180deg);
       transform: rotateY(180deg);
    }
+
    .ig-thumbnail img {
       height: 120px;
+   }
+   
+   #back-to-top-btn {
+      font-size: 22px;
+      width: 40px;
+      height: 40px;
+      bottom: 15px;
+      right: 15px;
    }
 }

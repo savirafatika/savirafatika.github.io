@@ -50,7 +50,8 @@ foreach ($result['data'] as $ph) {
 </head>
 
 <body id="home" class="scrollspy">
-   <div class="navbar-fixed">
+   <div class="navbar navbar-fixed" id="navbarku">
+      <!-- /.button back to top -->
       <nav class="pink darken-4">
          <div class="container">
             <div class="nav-wrapper">
@@ -101,7 +102,6 @@ foreach ($result['data'] as $ph) {
          </li>
       </ul>
    </div>
-
 
    <!-- About Us -->
    <section id="about" class="about scrollspy">
@@ -326,11 +326,6 @@ foreach ($result['data'] as $ph) {
       </div>
    </section>
 
-   <!-- button back to top -->
-   <button id="top">
-      <i class="material-icons">arrow_upward</i>
-   </button>
-
    <!-- footer -->
    <footer class="pink darken-4 white-text center">
       Copyright &copy;
@@ -339,9 +334,14 @@ foreach ($result['data'] as $ph) {
       </script> All rights reserved | Savira's
    </footer>
 
+   <!-- button back to top -->
+   <button id="back-to-top-btn">
+      <i class="material-icons">arrow_upward</i>
+   </button>
 
    <!--JavaScript at end of body for optimized loading-->
    <script type="text/javascript" src="js/materialize.min.js"></script>
+   <!-- materialize js -->
    <script>
       const sideNav = document.querySelectorAll('.sidenav');
       M.Sidenav.init(sideNav);
@@ -368,26 +368,12 @@ foreach ($result['data'] as $ph) {
       const collapsible = document.querySelectorAll('.collapsible');
       M.Collapsible.init(collapsible);
    </script>
-   <script type="text/javascript">
-      $(document).ready(function() {
-         var offset = 250;
-         var duration = 800;
+   <!-- /materialize js -->
 
-         $(window).scroll(function() {
-            if ($(this).scrollTop() > offset) {
-               $('#top').fadeIn(duration);
-            } else {
-               $('#top').fadeOut(duration);
-            }
-         });
+   <!-- back to top -->
+   <script src="js/scroll.js"></script>
+   <!-- /.back to top -->
 
-         $('#top').click(function() {
-            $("html, body").animate({
-               scrollTop: 0
-            }, duration);
-         });
-      });
-   </script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="https://apis.google.com/js/platform.js"></script>
    <script src="js/getrepo.js"></script>

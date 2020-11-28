@@ -19,6 +19,8 @@ request.onload = function () {
          var dot = 'F1E05A'
       } else if (status.language == 'HTML') {
          var dot = 'E34C26' 
+      } else if (status.language == 'Blade') {
+         var dot = 'F7523F' 
       }
          
       statusHTML += '<tr>'
